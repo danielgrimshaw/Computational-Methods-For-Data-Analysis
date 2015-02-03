@@ -14,7 +14,7 @@ noise = 10; % 20
 utn = ut+noise*(randn(1,n)+i*randn(1,n));
 un = ifft(utn);
 
-filter = exp(-k.^2);
+filter = exp(-(k+15).^2); % The fifteen moves it away from our target signal.
 utnf = filter.*utn;
 
 unf = ifft(utnf);
