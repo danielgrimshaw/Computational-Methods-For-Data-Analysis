@@ -6,7 +6,7 @@ Abw = rgb2gray(A);
 A2 = double(Abw);
 [nx, ny] = size(A2);
 
-An = A2 + 50*randn(nx, ny);
+An = A2 + 25*randn(nx, ny);
 
 x = linspace(0, 1, nx); dx = x(2)-x(1);
 y = linspace(0, 1, ny); dy = y(2)-y(1);
@@ -18,7 +18,7 @@ Dy = spdiags([oney -2*oney oney], [-1 0 1], ny, ny)/dy^2;
 Ix = eye(nx); Iy = eye(ny);
 L = kron(Iy, Dx)+kron(Dy,Ix);
 
-tspan = [0 0.002 0.004 0.006];
+tspan = [0 0.000019 0.00002 0.000021];
 An2 = reshape(An, nx*ny, 1);
 
 D = 1;
@@ -26,7 +26,7 @@ D = 1;
 
 for j=1:length(t)
     Atemp = uint8(reshape(usol(j,:), nx, ny));
-    subplot(2,4,j), imshow(Atemp);
+    subplot(2,2,j), imshow(Atemp);
 end
 
 % Ani = uint8(An);
